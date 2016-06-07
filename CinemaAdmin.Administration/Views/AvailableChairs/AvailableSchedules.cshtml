@@ -1,0 +1,32 @@
+﻿@model CinemaAdmin.Administration.Models.AvailableSchedulesModel
+
+@{
+    ViewBag.Title = "AvailableSchedules";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>AvailableSchedules</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel-body">
+            <table class="table table-striped table-condensed table-bordered">
+                <tr>
+                    <th class="text-right">ID</th>
+                    <th>Datum</th>
+                    <th>Filmnaam</th>
+                    <th>Zaalnaam</th>
+                </tr>
+                @foreach (var s in Model.schedules)
+                {
+                    <tr>
+                        <td>@s.Id</td>
+                        <td>@s.Date</td>
+                        <td>@Html.ActionLink(@s.movie.Name, "AvailableChairs", "AvailableChairs", new { scheduleID = @s.Id }, null)</td>
+                        <td>@s.hall.Name</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

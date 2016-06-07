@@ -1,0 +1,73 @@
+﻿@model CinemaAdmin.Administration.Models.OccupationModel
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3>Resultaten</h3>
+    </div>
+    <div class="panel-body">
+        <div class="col-md-3">
+            <table class="table table-striped table-condensed table-bordered">
+                <tr>
+                    <th>Films</th>
+                </tr>
+
+                @foreach (var o in Model.movies)
+            {
+                    <tr>
+                        <td>@o</td>
+                    </tr>
+
+                }
+            </table>
+        </div>
+        <div class="col-md-3">
+            <table class="table table-striped table-condensed table-bordered">
+                <tr>
+                    <th>Plaatsen per film</th>
+                </tr>
+
+                @foreach (var o in Model.countMovie)
+            {
+                    <tr>
+                        <td>@o</td>
+                    </tr>
+
+                }
+            </table>
+        </div>
+        <div class="col-md-3">
+            <table class="table table-striped table-condensed table-bordered">
+                <tr>
+                    <th>Zalen</th>
+                </tr>
+
+                @foreach (var o in Model.halls)
+            {
+                    <tr>
+                        <td>@o</td>
+                    </tr>
+
+                }
+            </table>
+        </div>
+        <div class="col-md-3">
+            <table class="table table-striped table-condensed table-bordered">
+                <tr">
+                    <th>Plaatsen per zaal</th>
+                    </tr>
+
+                    @foreach (var o in Model.countHall)
+                    {
+                        <tr>
+                            <td>@o</td>
+                        </tr>
+
+                    }
+            </table>
+        </div>
+    </div>
+</div>

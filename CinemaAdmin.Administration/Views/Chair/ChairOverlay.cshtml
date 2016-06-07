@@ -1,0 +1,45 @@
+﻿@model CinemaAdmin.Administration.Models.ChairViewModel
+
+@{
+    ViewBag.Title = "ChairOverlay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container jumbotron">
+    <div style="margin:15px">
+        <div class="row" style="margin-bottom:15px">
+            <h2>ChairOverlay</h2>
+            <p>@Model.chairQuantity</p>
+            <button class="btn btn-primary" id="nextButton" style="width:100%" onclick="sendTotalTickets()">Volgende</button>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" language="javascript">
+    function sendTotalTickets() {
+
+        var scheduleID = @Model.schedule.Id;
+        var totalTickets = @Model.chairQuantity;
+        var countRegular = @Model.regularQuantity;
+        var countChild = @Model.childQuantity;
+        var countStudent = @Model.studentQuantity;
+        var countSenior = @Model.seniorQuantity;
+        var countPopcorn = @Model.popcornQuantity;
+        var countLadies = @Model.ladiesQuantity;
+        var getTotalPrice =parseFloat(@Model.totalPrice);
+
+
+        var full = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '') + '/ChairOverview/ChairInfoOverview';
+        $('<form action="' + full + '" method="POST">' +
+    '<input type="hidden" name="scheduleID" value="' + scheduleID + '">' +
+    '<input type="hidden" name="chairs" value="' + totalTickets + '">' +
+    '<input type="hidden" name="totalRegular" value="' + countRegular + '">' +
+    '<input type="hidden" name="totalChild" value="' + countChild + '">' +
+    '<input type="hidden" name="totalStudent" value="' + countStudent + '">' +
+    '<input type="hidden" name="totalSenior" value="' + countSenior + '">' +
+    '<input type="hidden" name="totalPopcorn" value="' + countPopcorn + '">' +
+    '<input type="hidden" name="totalLadies" value="' + countLadies + '">' +
+    '<input type="hidden" name="totalPrice" value="' + getTotalPrice + '">' +
+    '</form>').submit();
+    }
+</script>

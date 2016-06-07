@@ -1,0 +1,25 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>_Navigation</title>
+</head>
+<body>
+    <div> 
+        <p>@Html.ActionLink("Film toevoegen", "Index", "Admin")</p>
+        <p>@Html.ActionLink("Voorstelling toevoegen", "ScheduleIndex", "AdminSchedule")</p>
+        <p>@Html.ActionLink("Stoelenoverzicht", "AvailableChairs", "AvailableChairs")</p>
+        <p><script>document.cookie</script></p>
+        <p>@ViewBag.Cookie</p>
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

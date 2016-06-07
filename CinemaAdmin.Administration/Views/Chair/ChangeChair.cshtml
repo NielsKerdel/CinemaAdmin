@@ -1,0 +1,33 @@
+﻿@model CinemaAdmin.Domain.Entities.Ticket
+
+@{
+    ViewBag.Title = "ChangeChair";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@if (HttpContext.Current.Request.Cookies.AllKeys.Contains("loginCookie"))
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3>Selecteer datum</h3>
+        </div>
+        <div class="panel-body">
+            @using (Html.BeginForm())
+            {
+                <div>
+                    <fieldset>
+                        <div class="editor-label">
+                            @Html.LabelFor(u => u.OrderCode)
+                        </div>
+                        <div class="editor-field">
+                            @Html.TextBoxFor(u => u.OrderCode)
+                            @Html.ValidationMessageFor(u => u.OrderCode)
+                        </div>
+                        <input type="submit" value="Insert Code" />
+                    </fieldset>
+                </div>
+
+            }
+        </div>
+    </div>
+}
